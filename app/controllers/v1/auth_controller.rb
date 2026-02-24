@@ -2,14 +2,11 @@ class V1::AuthController < ApplicationController
   allow_unauthenticated_access only: :create
 
   def create
-    user = User.find_by(email_address: auth_params[:email])
+    user = User.find_by!(email_address: auth_params[:email])
+    raise Errors.unauthorized unless user.authenticate(auth_params[:password])
 
-    if user&.authenticate(auth_params[:password])
-      set_auth_cookie(user)
-      render json: { message: "Logged in" }, status: :ok
-    else
-      render json: { error: "Invalid email or password" }, status: :unauthorized
-    end
+    set_auth_cookie(user)
+    render json: { message: "Logged in" }, status: :ok
   end
 
   def destroy

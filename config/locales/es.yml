@@ -1,0 +1,12 @@
+es:
+  activerecord:
+    models:
+      user:
+        one: usuario
+        other: usuarios
+        gender: male
+
+  errors:
+    messages:
+      
+

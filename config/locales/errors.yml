@@ -1,0 +1,17 @@
+es:
+  errors:
+    bad_request:
+      message: 'El parámetro %{param} es requerido'
+      code: 40001
+    not_found:
+      message: 'No se encontró %{article} %{resource}'
+      code: 40401
+    unauthorized:
+      message: 'Credenciales inválidas'
+      code: 40101
+    internal_server_error:
+      message: Ha ocurrido un error inesperado
+      code: 50001
+    
+    # unprocessable_entity
+
