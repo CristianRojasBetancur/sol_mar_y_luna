@@ -1,6 +1,6 @@
 module Jwt
   class Encoder
-    ALGORITHM = 'HS256'.freeze
+    ALGORITHM = "HS256".freeze
 
     def self.call(payload)
       JWT.encode(
@@ -18,7 +18,7 @@ module Jwt
     end
 
     def self.headers
-      { typ: 'JWT', alg: ALGORITHM }
+      { typ: "JWT", alg: ALGORITHM }
     end
   end
 end

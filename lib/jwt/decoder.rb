@@ -1,6 +1,6 @@
 module Jwt
   class Decoder
-    ALGORITHM = 'HS256'.freeze
+    ALGORITHM = "HS256".freeze
 
     def self.call(token)
       JWT.decode(

@@ -6,15 +6,15 @@ class V1::AuthController < ApplicationController
 
     if user&.authenticate(auth_params[:password])
       set_auth_cookie(user)
-      render json: { message: 'Logged in' }, status: :ok
+      render json: { message: "Logged in" }, status: :ok
     else
-      render json: { error: 'Invalid email or password' }, status: :unauthorized
+      render json: { error: "Invalid email or password" }, status: :unauthorized
     end
   end
 
   def destroy
     cookies.delete(:authorization)
-    render json: { message: 'Logged out' }, status: :ok
+    render json: { message: "Logged out" }, status: :ok
   end
 
   private
@@ -40,8 +40,8 @@ class V1::AuthController < ApplicationController
       sub: user.id,
       iat: now,
       exp: now + 1.hour.to_i,
-      iss: 'bookings_management_api',
-      aud: 'bookings_management_client',
+      iss: "bookings_management_api",
+      aud: "bookings_management_client",
       jti: SecureRandom.uuid
     }
   end

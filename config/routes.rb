@@ -3,8 +3,8 @@ Rails.application.routes.draw do
 
   namespace :v1 do
     # Authentication
-    post 'auth/login', to: 'auth#create'
-    delete 'auth/logout', to: 'auth#destroy'
+    post "auth/login", to: "auth#create"
+    delete "auth/logout", to: "auth#destroy"
     resource :registry, only: :create
 
     resources :dashboard, only: :index

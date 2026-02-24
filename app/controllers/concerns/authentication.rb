@@ -18,12 +18,12 @@ module Authentication
     return unauthorized unless token
 
     payload, = Jwt::Decoder.call(token)
-    @current_user = User.find(payload['sub'])
+    @current_user = User.find(payload["sub"])
   rescue JWT::DecodeError, JWT::ExpiredSignature, ActiveRecord::RecordNotFound
     unauthorized
   end
 
   def unauthorized
-    render json: { error: 'Unauthorized' }, status: :unauthorized
+    render json: { error: "Unauthorized" }, status: :unauthorized
   end
 end
